@@ -99,6 +99,11 @@ public class frmUsuarios extends javax.swing.JInternalFrame {
 
         cmdAlterar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/icons8-lápis-24.png"))); // NOI18N
         cmdAlterar.setToolTipText("Editar Cadastro");
+        cmdAlterar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cmdAlterarActionPerformed(evt);
+            }
+        });
 
         cmdNovo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/icons8-adicionar-24.png"))); // NOI18N
         cmdNovo.setToolTipText("Novo Cadastro");
@@ -329,6 +334,30 @@ public class frmUsuarios extends javax.swing.JInternalFrame {
         cmbPerfil.setEnabled(false);
         
     }//GEN-LAST:event_cmdCancelarActionPerformed
+
+    private void cmdAlterarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmdAlterarActionPerformed
+        // Codigo botão alterar
+        
+        cmdPrimeiro.setEnabled(false);
+        cmdAnterior.setEnabled(false);
+        cmdProximo.setEnabled(false);
+        cmdUltimo.setEnabled(false);
+        cmdNovo.setEnabled(false);
+        cmdAlterar.setEnabled(false);
+        cmdCancelar.setEnabled(true);
+        cmdSalvar.setEnabled(true);
+        cmdPesquisar.setEnabled(false);
+        
+        ;
+        txtNome.setEnabled(true);
+        txtSobreNome.setEnabled(true);
+        txtSenha.setEnabled(true);
+        txtConfSenha.setEnabled(true);
+        cmbPerfil.setEnabled(true);
+       
+                   
+        txtNome.requestFocusInWindow();
+    }//GEN-LAST:event_cmdAlterarActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
