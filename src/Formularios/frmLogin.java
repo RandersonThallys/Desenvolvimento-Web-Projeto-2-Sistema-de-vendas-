@@ -16,9 +16,11 @@ import javax.swing.JOptionPane;
  */
 public class frmLogin extends javax.swing.JFrame {
 
-    /**
-     * Creates new form frmLogin
-     */
+    private Dados clsdados;
+    public void setDados(Dados clsdados){
+        this.clsdados = clsdados;
+    }
+    
     public frmLogin() {
         initComponents();
     }
@@ -50,7 +52,7 @@ public class frmLogin extends javax.swing.JFrame {
         });
 
         jLabel1.setForeground(new java.awt.Color(0, 0, 255));
-        jLabel1.setText("Usuário:");
+        jLabel1.setText("Usuario:");
 
         jLabel2.setForeground(new java.awt.Color(51, 51, 255));
         jLabel2.setText("Senha:");
@@ -136,8 +138,8 @@ public class frmLogin extends javax.swing.JFrame {
 
     private void cmdLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmdLoginActionPerformed
         // codigo botão logim
-        Dados clsdados = new Dados();
-        if (!clsdados.validarUsuarios(txtUsuario.getText(),new String(txtSenha.getPassword()))){
+        
+        if (!clsdados.validarUsuario(txtUsuario.getText(),new String(txtSenha.getPassword()))){
         JOptionPane.showMessageDialog(rootPane,"USUARIO E SENHA INCORRETO");
         txtUsuario.setText("");
         txtSenha.setText("");
@@ -147,6 +149,7 @@ public class frmLogin extends javax.swing.JFrame {
     }//GEN-LAST:event_cmdLoginActionPerformed
        frmMenu frmmenu = new frmMenu();
        this.setVisible(false);
+       frmmenu.setDados(clsdados);
        frmmenu.setExtendedState(JFrame.MAXIMIZED_BOTH);
        frmmenu.setVisible(true);
     }

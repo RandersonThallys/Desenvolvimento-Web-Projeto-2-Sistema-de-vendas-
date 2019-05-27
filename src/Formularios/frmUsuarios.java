@@ -5,15 +5,20 @@
  */
 package Formularios;
 
+import Classes.Dados;
+
 /**
  *
  * @author RandersonThallys
  */
 public class frmUsuarios extends javax.swing.JInternalFrame {
 
-    /**
-     * Creates new form frmUsuarios
-     */
+     private Dados clsdados;
+     private int usuarioatual = 0;
+     
+    public void setDados(Dados clsdados){
+        this.clsdados = clsdados;
+    }
     public frmUsuarios() {
         initComponents();
     }
@@ -54,6 +59,23 @@ public class frmUsuarios extends javax.swing.JInternalFrame {
         setMaximizable(true);
         setResizable(true);
         setTitle("Cadastro de Usuarios");
+        addInternalFrameListener(new javax.swing.event.InternalFrameListener() {
+            public void internalFrameActivated(javax.swing.event.InternalFrameEvent evt) {
+            }
+            public void internalFrameClosed(javax.swing.event.InternalFrameEvent evt) {
+            }
+            public void internalFrameClosing(javax.swing.event.InternalFrameEvent evt) {
+            }
+            public void internalFrameDeactivated(javax.swing.event.InternalFrameEvent evt) {
+            }
+            public void internalFrameDeiconified(javax.swing.event.InternalFrameEvent evt) {
+            }
+            public void internalFrameIconified(javax.swing.event.InternalFrameEvent evt) {
+            }
+            public void internalFrameOpened(javax.swing.event.InternalFrameEvent evt) {
+                formInternalFrameOpened(evt);
+            }
+        });
 
         jLabel1.setForeground(new java.awt.Color(0, 0, 204));
         jLabel1.setText("Cod Usuario:");
@@ -358,6 +380,16 @@ public class frmUsuarios extends javax.swing.JInternalFrame {
                    
         txtNome.requestFocusInWindow();
     }//GEN-LAST:event_cmdAlterarActionPerformed
+
+    private void formInternalFrameOpened(javax.swing.event.InternalFrameEvent evt) {//GEN-FIRST:event_formInternalFrameOpened
+        txtCodUsuario.setText(clsdados.getUsuarios()[usuarioatual].getCodusuario());
+        txtNome.setText(clsdados.getUsuarios()[usuarioatual].getNome());
+        txtSobreNome.setText(clsdados.getUsuarios()[usuarioatual].getSobrenome());
+        txtSenha.setText(clsdados.getUsuarios()[usuarioatual].getSenha());
+        txtConfSenha.setText(clsdados.getUsuarios()[usuarioatual].getSenha());
+        cmbPerfil.setSelectedItem(clsdados.getUsuarios()[usuarioatual].getPerfil());
+        
+    }//GEN-LAST:event_formInternalFrameOpened
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

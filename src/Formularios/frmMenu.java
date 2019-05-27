@@ -5,15 +5,18 @@
  */
 package Formularios;
 
+import Classes.Dados;
+
 /**
  *
  * @author RandersonThallys
  */
 public class frmMenu extends javax.swing.JFrame {
 
-    /**
-     * Creates new form frmMenu
-     */
+   private Dados clsdados;
+    public void setDados(Dados clsdados){
+        this.clsdados = clsdados;
+    }
     public frmMenu() {
         initComponents();
     }
@@ -175,6 +178,7 @@ public class frmMenu extends javax.swing.JFrame {
     private void mnArquivosUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnArquivosUsuarioActionPerformed
         // Botão usuarios da barra de menu
         frmUsuarios fusuario = new frmUsuarios();
+        fusuario.setDados(clsdados);
         DeskPainel.add(fusuario);
         fusuario.show();
         

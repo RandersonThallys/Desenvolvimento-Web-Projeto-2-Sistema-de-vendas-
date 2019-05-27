@@ -7,11 +7,13 @@ import Formularios.frmLogin;
  */
 public class ProjetoJava {
 
-    /**
-     * @param args the command line arguments
-     */
+   
     public static void main(String[] args) {
+        Dados clsdados = new Dados();
+        
         frmLogin Login = new frmLogin();
+        Login.setDados(clsdados);
+        Login.setLocationRelativeTo(null);
         Login.setVisible(true);
     }
     
