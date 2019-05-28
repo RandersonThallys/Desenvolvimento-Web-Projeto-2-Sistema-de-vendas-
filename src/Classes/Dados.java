@@ -36,6 +36,19 @@ public Dados(){
         }
         return false;
     }  
+    public int linhaUsuario(String usuario){
+        
+              for(int i=0;i <countusuario; i++){
+            
+        if (Musuarios[i].getCodusuario().equals(usuario)){
+        return i;
+        
+        
+          
+        }
+        }
+        return -1;
+    }
 }
 
     

@@ -6,6 +6,7 @@
 package Formularios;
 
 import Classes.Dados;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -15,6 +16,7 @@ public class frmUsuarios extends javax.swing.JInternalFrame {
 
      private Dados clsdados;
      private int usuarioatual = 0;
+     private boolean cdmnovo = false;
      
     public void setDados(Dados clsdados){
         this.clsdados = clsdados;
@@ -306,6 +308,8 @@ public class frmUsuarios extends javax.swing.JInternalFrame {
         txtConfSenha.setText("");
         cmbPerfil.setSelectedIndex(0);
         
+        cdmnovo = true;
+        
         txtCodUsuario.requestFocusInWindow();
         
         
@@ -313,7 +317,65 @@ public class frmUsuarios extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_cmdNovoActionPerformed
 
     private void cmdSalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmdSalvarActionPerformed
-        // codigo botão salvar formulario usuarios
+       
+        
+     // Validação dos campos cadastro de usuarios
+        
+      
+        if(txtCodUsuario.getText().equals("")){
+            JOptionPane.showMessageDialog(rootPane, "FAVOR DIGITAR CODIGO PARA REALIZAR SEU CADASTRO");
+            txtCodUsuario.requestFocusInWindow();
+            return;
+            
+        }
+        
+         if(cmbPerfil.getSelectedIndex()== 0){
+            JOptionPane.showMessageDialog(rootPane, "FAVOR SELECIONAR UM PERFIL PARA REALIZAR SEU CADASTRO");
+            cmbPerfil.requestFocusInWindow();
+            return;
+            
+        }
+         if(txtNome.getText().equals("")){
+            JOptionPane.showMessageDialog(rootPane, "FAVOR DIGITAR NOME PARA REALIZAR SEU CADASTRO");
+            txtNome.requestFocusInWindow();
+            return;
+            
+        }
+         
+         if(txtSobreNome.getText().equals("")){
+            JOptionPane.showMessageDialog(rootPane, "FAVOR DIGITAR SOBRE NOME PARA REALIZAR SEU CADASTRO");
+            txtSobreNome.requestFocusInWindow();
+            return;
+            
+        }
+         String SSenha = new String (txtSenha.getPassword());
+         String confSenha = new String (txtConfSenha.getPassword());
+         
+         if(SSenha.equals("")){
+            JOptionPane.showMessageDialog(rootPane, "FAVOR DIGITAR SENHA PARA REALIZAR SEU CADASTRO");
+            txtSenha.requestFocusInWindow();
+            return;
+            
+        }
+         if(confSenha.equals("")){
+            JOptionPane.showMessageDialog(rootPane, "FAVOR CONFIRMA A SENHA PARA REALIZAR SEU CADASTRO");
+            txtConfSenha.requestFocusInWindow();
+            return;
+            
+        }
+         
+         
+          if(!SSenha.equals(confSenha)){
+            JOptionPane.showMessageDialog(rootPane, "SENHA DE CONFIRMAÇÃO NÃO CONFERE FAVOR CONFIRMA SENHA PARA REALIZAR SEU CADASTRO");
+            txtSenha.requestFocusInWindow();
+            return;
+            
+        }
+         
+        
+        
+        
+        
         
         cmdPrimeiro.setEnabled(true);
         cmdAnterior.setEnabled(true);
@@ -370,14 +432,14 @@ public class frmUsuarios extends javax.swing.JInternalFrame {
         cmdSalvar.setEnabled(true);
         cmdPesquisar.setEnabled(false);
         
-        ;
+        
         txtNome.setEnabled(true);
         txtSobreNome.setEnabled(true);
         txtSenha.setEnabled(true);
         txtConfSenha.setEnabled(true);
         cmbPerfil.setEnabled(true);
        
-                   
+        cdmnovo = false;           
         txtNome.requestFocusInWindow();
     }//GEN-LAST:event_cmdAlterarActionPerformed
 
